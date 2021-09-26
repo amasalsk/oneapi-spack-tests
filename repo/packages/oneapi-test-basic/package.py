@@ -16,6 +16,7 @@ class OneapiTestBasic(Package):
 
     maintainers = ["rscohn2"]
 
+    variant('scalapack', default=False, description=f'Test scalapack')
     variant('ilp64', default=False, description='Use ilp64')
     variant('virtual', default=False, description='Use virtual dependences')
     variant('all', default=False, description='Use all samples')
@@ -55,6 +56,7 @@ class OneapiTestBasic(Package):
     depends_on('tbb', when='+tbb +virtual')
     depends_on('mkl', when='+mkl +virtual')
     depends_on('mpi', when='+mpi +virtual')
+    depends_on('scalapack', when='+scalapack +virtual')
 
     version('main')
 
